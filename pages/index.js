@@ -12,9 +12,9 @@ export default function Home() {
    const searchInputRef = useRef(null);
    function search(e){
       e.preventDefault();
-      const term = searchInputRef.current.value;
+      const term = searchInputRef.current.value.trim();
       if(!term.trim()) return
-      router.push(`/search?term=${term.trim()}&searchType=`)
+      router.push(`/search?term=${term}&searchType=`)
    }
     return ( 
       <div>
