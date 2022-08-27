@@ -1,12 +1,13 @@
-import React from "react";
 import Head from "next/head";
 import SearchHeader from "../components/SearchHeader";
 import Response from "../Response.js";
 import SearchResults from "../components/SearchResults";
+import ImageResults from "../components/ImageResults";
 import { useRouter } from "next/router";
 
 export default function search({ results }) {
   const router = useRouter();
+  console.log(results);
   return (
     <div>
       <Head>
@@ -14,8 +15,12 @@ export default function search({ results }) {
       </Head>
       {/* Search Header */}
       <SearchHeader />
-      {/* Search Result */}
-      <SearchResults results={results} />
+      {/* Search web and Images Results */}
+      {router.query.searchType === "image" ? (
+        <ImageResults results={results} />
+      ) : (
+        <SearchResults results={results} />
+      )}
     </div>
   );
 }
