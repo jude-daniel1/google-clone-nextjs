@@ -16,7 +16,7 @@ export default function Home() {
     router.push(`/search?term=${term}&searchType=`);
   }
 
-  async function randomSearch(event) {
+  async function randomSearch(even) {
     event.preventDefault();
     const randomTerm = await fetch(
       "https://random-word-api.herokuapp.com/word?number=1"
